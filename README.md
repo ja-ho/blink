@@ -24,3 +24,9 @@ private:
 > 인자로 받은 millisecond 만큼 불이 들어오게 합니다.
 > * void off(int millisecond);
 > 인자로 받은 millisecond 만큼 불이 꺼지게 합니다.
+
+* how to use
+> 생성자를 이용하여 Blink 객체를 만듭니다.
+> output으로 사용할 pin number를 인자로 넘겨줍니다.
+> on과 off를 이용하여 불을 깜빡이게 합니다.
+> millisecond를 인자로 주어 시간을 조정할 수 있습니다.

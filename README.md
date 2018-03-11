@@ -30,3 +30,17 @@ private:
 > output으로 사용할 pin number를 인자로 넘겨줍니다.
 > on과 off를 이용하여 불을 깜빡이게 합니다.
 > millisecond를 인자로 주어 시간을 조정할 수 있습니다.
+
+
+# ds18b20
+
+#### ESP8266 on NodeMCU board + DS18B20 + ArduinoIDE + ThingSpeak
+온도 센서인 ds18b20을 이용하여 온도를 체크한다. 이번 프로그램에서는 wifi 연결을 통하여 온도 측정값을 thingspeak로 전달한다.
+
+필요한 것들
+* NodeMCU ESP8266 dev board, wifi-enabled microcontroller board with gpio
+* DS18B20, maxim 1-wire temperature sensor
+특이점: one-wire interface. 1개의 라인을 이용해서 양방향 통신을 한다.
+* 4k7 ohm resistor, some wire
+(nodemcu esp8266 D3, D4번 핀에 내장)
+* USB power source or alternatively 3v power source, for short term testing 2*1,5V AA batteries

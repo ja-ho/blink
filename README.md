@@ -34,8 +34,12 @@ private:
 
 # ds18b20
 
-#### ESP8266 on NodeMCU board + DS18B20 + ArduinoIDE + ThingSpeak
-온도 센서인 ds18b20을 이용하여 온도를 체크한다. 이번 프로그램에서는 wifi 연결을 통하여 온도 측정값을 thingspeak로 전달한다.
+#### ESP8266 on NodeMCU board + DS18B20 + ArduinoIDE + ThingSpeak + IFTTT
+
+1. 온도 센서인 ds18b20을 이용하여 온도를 체크한다. 이번 프로그램에서는 wifi 연결을 통하여 온도 측정값을 thingspeak로 전달한다.
+
+2. 온도 센서인 ds18b20을 이용하여 온도를 체크한다. 이번 프로그램에서는 wifi 연결을 통하여 온도 측정값을 http로 IFTTT 를 통하여 line에 전달한다.
+
 
 필요한 것들
 * NodeMCU ESP8266 dev board, wifi-enabled microcontroller board with gpio

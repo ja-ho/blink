@@ -48,3 +48,8 @@ private:
 * 4k7 ohm resistor, some wire
 (nodemcu esp8266 D3, D4번 핀에 내장)
 * USB power source or alternatively 3v power source, for short term testing 2*1,5V AA batteries
+
+# web_server
+
+#### 리눅스 서버를 구성하여 esp8266으로부터 온도 데이터를 받아 저장한다.
+아직 public접근이 되지 않아 우선은 float 2자리까지 데이터를 시간과 함게 받아 저장하는 선까지 구현.

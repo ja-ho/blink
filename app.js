@@ -3,25 +3,25 @@ const app = express();
 const fs = require('fs');
 
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/', (req, res) => res.send('Hello World!\n'));
 
 var seq = 0;
+
+
 app.get('/log', function(req, res) {
 	console.log("%j", req.query);
 	res.end(seq++);
 });
 
-
-
-app.get('/get', function(req, res){
+app.get('/update', function(req, res){
 	var date = new Date();
-	
+
 	var day = date.getUTCDate();
 	var month = date.getUTCMonth() + 1;
 	var year = date.getUTCFullYear();
 	var time = date.getUTCHours() + 9;
 	var min = date.getUTCMinutes();
-	
+
 	if(time > 24) {
 		time = time - 24;
 		day = day + 1;
@@ -34,7 +34,7 @@ app.get('/get', function(req, res){
 			}
 		}
 	}
-	
+
 	if(day < 10) {
 		day = "0" + day.toString();
 	}
@@ -50,19 +50,25 @@ app.get('/get', function(req, res){
 	}
 
 	var time = year.toString() + month.toString() + day.toString() + "," + time.toString() + ":" + min.toString();
-	console.log(time);
-	
+	var api_key = req.query.api_key;
 	var temperature = req.query.field1;
-	Number(temperature);
-	console.log(temperature);
+	temperature = Number(temperature).toFixed(2);
 	fs.appendFile("log.txt", time + "," + temperature.toString() + '\n', (err) => {
 		if(err) throw err;
-		console.log('The "data to append" was appended to file!');
 		seq++;
+		res.end();
+	});
+});
+
+app.get('/get', (req,res)=>{
+	fs.readFile('./log.txt', "utf8", (err,data) => {
+		if (err) throw err;
+		console.log(data);
+		res.send(data);
 		res.end();
 	});
 });
 
 
 
-app.listen(3000, () => console.log('Example app listening on port 3000'));
+app.listen(8080, () => console.log('Example app listening on port 8080'));

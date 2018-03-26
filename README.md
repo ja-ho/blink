@@ -52,4 +52,10 @@ private:
 # web_server
 
 #### 리눅스 서버를 구성하여 esp8266으로부터 온도 데이터를 받아 저장한다.
-아직 public접근이 되지 않아 우선은 float 2자리까지 데이터를 시간과 함게 받아 저장하는 선까지 구현.
+아직 public접근이 되지 않는다.
+사용법:
+1. '/' : hello world를 출력한다
+2. '/update' : get요청으로 query값을 붙인 값을 파일에 저장한다. 현재는 api_key를 받지만 사용하지 않고 field1값만을 현재 시간과 함께 소수점2자리까지 저장한다.
+예 ) curl -X GET "http://163.239.76.202/update?api_key=xyzz&field1=22.22"
+3. '/get' : get요청으로 update로 저장해놨던 온도 값을 불러들인다. 
+예 ) curl -X GET "http://163.239.76.202:8080/get"
